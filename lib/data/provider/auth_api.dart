@@ -24,5 +24,4 @@ class AuthApi {
       options: Options(headers: await _dioClient.getHeaders()),
     );
   }
-
 }

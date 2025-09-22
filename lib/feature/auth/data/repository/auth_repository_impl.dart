@@ -19,7 +19,6 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
-
   Future<void> Login(LoginRequest request) async {
     try {
       final response = await authApi.login(request);

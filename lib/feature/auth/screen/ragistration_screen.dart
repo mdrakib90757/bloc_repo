@@ -34,12 +34,12 @@ class RegistrationScreen extends StatelessWidget {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  (route) => false,
+              (route) => false,
             );
           } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text("Registration Failed:${state.message}")));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("Registration Failed:${state.message}")),
+            );
           }
         },
         builder: (context, state) {
@@ -52,75 +52,84 @@ class RegistrationScreen extends StatelessWidget {
             child: Form(
               key: _formKey,
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: nameCtrl,
-                      decoration: const InputDecoration(labelText: "Name"),
-                    ),
-                    TextFormField(
-                      controller: address1lCtrl,
-                      decoration: const InputDecoration(
-                        labelText: "addressLine1",
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: nameCtrl,
+                        decoration: const InputDecoration(labelText: "Name"),
                       ),
-                    ),
-                    TextFormField(
-                      controller: address2Ctrl,
-                      decoration: const InputDecoration(
-                        labelText: "addressLine2",
+                      TextFormField(
+                        controller: address1lCtrl,
+                        decoration: const InputDecoration(
+                          labelText: "addressLine1",
+                        ),
                       ),
-                    ),
-                    TextFormField(
-                      controller: contactCtrl,
-                      decoration: const InputDecoration(labelText: "contactName"),
-                    ),
-                    TextFormField(
-                      controller: emailCtrl,
-                      decoration: const InputDecoration(labelText: "email"),
-                    ),
-                    TextFormField(
-                      controller: phoneCtrl,
-                      decoration: const InputDecoration(labelText: "phone"),
-                    ),
-                    TextFormField(
-                      controller: orgCtrl,
-                      decoration: const InputDecoration(
-                        labelText: "organizationName",
+                      TextFormField(
+                        controller: address2Ctrl,
+                        decoration: const InputDecoration(
+                          labelText: "addressLine2",
+                        ),
                       ),
-                    ),
-                    // TextFormField(controller:, decoration: const InputDecoration(labelText: "businessTypeId")),
-                    TextFormField(
-                      controller: loginNameCtrl,
-                      decoration: const InputDecoration(labelText: "loginName"),
-                    ),
-                    TextFormField(
-                      controller: passwordCtrl,
-                      decoration: const InputDecoration(labelText: "password"),
-                    ),
-                    const SizedBox(height: 20),
-                
-                    ElevatedButton(
-                      onPressed: () {
-                        final request = RegistrationRequest(
-                          name: nameCtrl.text,
-                          addressLine1: address1lCtrl.text,
-                          addressLine2: address2Ctrl.text,
-                          contactName: contactCtrl.text,
-                          email: emailCtrl.text,
-                          phone: phoneCtrl.text,
-                          organizationName: orgCtrl.text,
-                          businessTypeId: 1,
-                          loginName: loginNameCtrl.text,
-                          password: passwordCtrl.text,
-                        );
-                
-                        context.read<AuthBloc>().add(
-                          RegistrationServiceCenterEvent(request),
-                        );
-                      },
-                      child: const Text("Register"),
-                    ),
-                  ],
+                      TextFormField(
+                        controller: contactCtrl,
+                        decoration: const InputDecoration(
+                          labelText: "contactName",
+                        ),
+                      ),
+                      TextFormField(
+                        controller: emailCtrl,
+                        decoration: const InputDecoration(labelText: "email"),
+                      ),
+                      TextFormField(
+                        controller: phoneCtrl,
+                        decoration: const InputDecoration(labelText: "phone"),
+                      ),
+                      TextFormField(
+                        controller: orgCtrl,
+                        decoration: const InputDecoration(
+                          labelText: "organizationName",
+                        ),
+                      ),
+                      // TextFormField(controller:, decoration: const InputDecoration(labelText: "businessTypeId")),
+                      TextFormField(
+                        controller: loginNameCtrl,
+                        decoration: const InputDecoration(
+                          labelText: "loginName",
+                        ),
+                      ),
+                      TextFormField(
+                        controller: passwordCtrl,
+                        decoration: const InputDecoration(
+                          labelText: "password",
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          final request = RegistrationRequest(
+                            name: nameCtrl.text,
+                            addressLine1: address1lCtrl.text,
+                            addressLine2: address2Ctrl.text,
+                            contactName: contactCtrl.text,
+                            email: emailCtrl.text,
+                            phone: phoneCtrl.text,
+                            organizationName: orgCtrl.text,
+                            businessTypeId: 1,
+                            loginName: loginNameCtrl.text,
+                            password: passwordCtrl.text,
+                          );
+
+                          context.read<AuthBloc>().add(
+                            RegistrationServiceCenterEvent(request),
+                          );
+                        },
+                        child: const Text("Register"),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

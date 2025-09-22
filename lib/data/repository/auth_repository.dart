@@ -6,9 +6,6 @@ abstract class AuthRepository {
   Future<void> registerServiceCenter(RegistrationRequest request);
 }
 
-
 abstract class AuthLogin {
   Future<void> Login(LoginRequest request);
 }
-
-

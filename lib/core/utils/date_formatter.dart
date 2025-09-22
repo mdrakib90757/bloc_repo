@@ -5,7 +5,7 @@ class DateFormatter {
     return DateFormat('dd MMMM, yyyy').format(date);
   }
 
-  // today dateTime
+  // today full dateTime
   static String formatFullDate(DateTime date) {
     return DateFormat('EEEE, dd MMMM, yyyy').format(date);
   }
