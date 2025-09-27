@@ -5,6 +5,29 @@ import 'package:dio/dio.dart';
 class ApiService {
   final DioClient dioClient = DioClient();
 
+  ApiService() {
+    dioClient.dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          print("REQUEST → ${options.method} ${options.uri}");
+          return handler.next(options);
+        },
+        onResponse: (response, handler) {
+          print(
+            "RESPONSE ← ${response.requestOptions.uri} ${response.statusCode}",
+          );
+          return handler.next(response);
+        },
+        onError: (DioError e, handler) {
+          print(
+            "ERROR ← ${e.requestOptions.uri} ${e.response?.statusCode} ${e.message}",
+          );
+          return handler.next(e);
+        },
+      ),
+    );
+  }
+
   // GET request
   Future<dynamic> get(
     String path, {

@@ -43,7 +43,7 @@ class AuthWrapper extends StatelessWidget {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         if (state is AuthInitial) {
-          return const LoginScreen();
+          return const LoginScreenBloc();
         } else if (state is AuthLoading) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
@@ -51,7 +51,7 @@ class AuthWrapper extends StatelessWidget {
         } else if (state is AuthSuccess) {
           return const HomeScreen();
         } else if (state is AuthFailure) {
-          return LoginScreen();
+          return LoginScreenBloc();
         } else {
           return const Scaffold(body: Center(child: Text("Unknown state")));
         }

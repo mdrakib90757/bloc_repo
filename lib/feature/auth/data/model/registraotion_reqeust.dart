@@ -1,26 +1,26 @@
 class RegistrationRequest {
-  final String name;
-  final String addressLine1;
-  final String addressLine2;
-  final String contactName;
-  final String email;
-  final String phone;
-  final String organizationName;
-  final int businessTypeId;
-  final String loginName;
-  final String password;
+  String? name;
+  String? addressLine1;
+  String? addressLine2;
+  String? contactName;
+  String? email;
+  String? phone;
+  String? organizationName;
+  int? businessTypeId;
+  String? loginName;
+  String? password;
 
   RegistrationRequest({
-    required this.name,
-    required this.addressLine1,
-    required this.addressLine2,
-    required this.contactName,
-    required this.email,
-    required this.phone,
-    required this.organizationName,
-    required this.businessTypeId,
-    required this.loginName,
-    required this.password,
+    this.name,
+    this.addressLine1,
+    this.addressLine2,
+    this.contactName,
+    this.email,
+    this.phone,
+    this.password,
+    this.loginName,
+    this.businessTypeId,
+    this.organizationName,
   });
 
   Map<String, dynamic> toJson() {

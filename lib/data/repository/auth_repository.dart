@@ -9,3 +9,7 @@ abstract class AuthRepository {
 abstract class AuthLogin {
   Future<void> Login(LoginRequest request);
 }
+
+abstract class BusinessType {
+  Future<BusinessType> fetchBusinessTypes();
+}

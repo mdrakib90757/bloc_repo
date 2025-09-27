@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:serialman_app/core/constansts/app_colors.dart';
 import 'package:serialman_app/core/utils/date_formatter.dart';
+import 'package:serialman_app/feature/auth/screen/login_screen.dart';
 
 import '../../../core/g_widgets/custom_clip_path_clipper/custom_clip_path_clipper.dart';
 
@@ -28,7 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Icon(Icons.notifications, color: Colors.white),
           SizedBox(width: 20),
-          Icon(Icons.logout, color: Colors.white),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreenBloc()),
+              );
+            },
+            child: Icon(Icons.logout, color: Colors.white),
+          ),
         ],
       ),
       body: Stack(

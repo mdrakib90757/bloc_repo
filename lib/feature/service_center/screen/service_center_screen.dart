@@ -83,7 +83,7 @@ class _ProfileScreenState extends State<serviceCenterScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(height: 10),
                     ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
